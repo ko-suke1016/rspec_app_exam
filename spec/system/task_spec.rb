@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Task', type: :system do
 
   let(:project){FactoryBot.create(:project)}
-  let(:task){FactoryBot.create(:task, project_id: project.id)}
+  let(:task){FactoryBot.create(:task)}
 
   describe 'Task一覧' do
     context '正常系' do
@@ -80,7 +80,7 @@ RSpec.describe 'Task', type: :system do
 
       it '既にステータスが完了のタスクのステータスを変更した場合、Taskの完了日が更新されないこと' do
         # TODO: FactoryBotのtraitを利用してください
-        task = FactoryBot.create(:task, :project_date, project_id: project.id)
+        task = FactoryBot.create(:task, :project_date)
         visit edit_project_task_path(project, task)
         select 'todo', from: 'Status'
         click_button 'Update Task'
@@ -95,7 +95,7 @@ RSpec.describe 'Task', type: :system do
     context '正常系' do
       # FIXME: テストが失敗するので修正してください
       it 'Taskが削除されること' do
-        create(:task, project_id: project.id)
+        create(:task)
         visit project_tasks_path(project)
         click_link 'Destroy'
         page.driver.browser.switch_to.alert.accept
