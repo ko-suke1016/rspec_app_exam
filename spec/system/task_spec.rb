@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Task', type: :system do
-
-  let(:project){create(:project)}
-  let(:task){create(:task)}
+  let(:project){ create(:project) }
+  let(:task){ create(:task) }
 
   describe 'Task一覧' do
     context '正常系' do
@@ -56,8 +55,7 @@ RSpec.describe 'Task', type: :system do
   end
 
   describe 'Task編集' do
-
-    let!(:other_task){create(:task, :task_date)}
+    let!(:other_task){ create(:task, :task_date) }
 
     context '正常系' do
       it 'Taskを編集した場合、一覧画面で編集後の内容が表示されること' do
@@ -93,8 +91,7 @@ RSpec.describe 'Task', type: :system do
   end
 
   describe 'Task削除' do
-
-    let!(:task){create(:task, :task_date)}
+    let!(:task){ create(:task, :task_date) }
 
     context '正常系' do
       # FIXME: テストが失敗するので修正してください
