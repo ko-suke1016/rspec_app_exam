@@ -18,6 +18,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'faker'
   gem 'factory_bot_rails'
+  gem 'pry-rails' # use binding.pry
+  gem 'pry-byebug' # use step over on binding.pry
 end
 
 group :development do
@@ -27,8 +29,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors' # render better error page
   gem 'binding_of_caller' # use irb on better_errors
-  gem 'pry-rails' # use binding.pry
-  gem 'pry-byebug' # use step over on binding.pry
   gem 'pry-doc' # extend pry document support
   gem 'rubocop'
   gem 'rails_best_practices'
