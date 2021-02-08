@@ -55,7 +55,7 @@ RSpec.describe 'Task', type: :system do
   end
 
   describe 'Task編集' do
-    let!(:other_task){ create(:task, :task_date) }
+    let!(:other_task){ create(:task, :status_done_yesterday_completion_date) }
 
     context '正常系' do
       it 'Taskを編集した場合、一覧画面で編集後の内容が表示されること' do
@@ -91,7 +91,7 @@ RSpec.describe 'Task', type: :system do
   end
 
   describe 'Task削除' do
-    let!(:task){ create(:task, :task_date) }
+    let!(:task){ create(:task, :status_done_yesterday_completion_date) }
 
     context '正常系' do
       # FIXME: テストが失敗するので修正してください
