@@ -76,7 +76,7 @@ RSpec.describe 'Task', type: :system do
         expect(current_path).to eq project_task_path(project, task)
       end
 
-      let!(:other_task){ create(:task, :status_done_yesterday_completion_date) }
+      let!(:other_task){ create(:task, :done) }
       it '既にステータスが完了のタスクのステータスを変更した場合、Taskの完了日が更新されないこと' do
         # TODO: FactoryBotのtraitを利用してください
         visit edit_project_task_path(project, other_task)
@@ -90,7 +90,7 @@ RSpec.describe 'Task', type: :system do
   end
 
   describe 'Task削除' do
-    let!(:task){ create(:task, :status_done_yesterday_completion_date) }
+    let!(:task){ create(:task, :done) }
 
     context '正常系' do
       # FIXME: テストが失敗するので修正してください
